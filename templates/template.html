@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Make Donations</title>
+
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Inter&display=swap" rel="stylesheet">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/donations">DonationSpark</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="/donations">Home <span class="sr-only">(current)</span></a>
+			</li>
+	  
+			<li class="nav-item">
+			  <a class="nav-link" href="/donations">About Us</a>
+			</li>
+		</div>
+	  </nav>
+
+	<!-- Landing page styling -->
+	<style type="text/css">
+
+		body{
+			background-image: url("{% static 'images/pic2.jpg' %}");
+			/* Full height */
+			height: 100%;
+			/* Center and scale the image nicely */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			
+		}
+
+		h3, h5{
+			font-family: 'Fjalla One', sans-serif;
+			font-weight: 100;
+		}
+
+		h3{
+			font-size: 36px;
+		}
+
+		h5{
+			font-size: 24px;
+		}
+
+		p, label{
+			font-family: 'Inter', sans-serif;
+		}
+
+		hr{
+			color:#fff;
+			background-color: #fff;
+			border-top:1px solid #fff;
+			margin-top:20px;
+			margin-bottom: 20px;
+		}
+
+		#container{
+			width:1200px;
+			margin:0 auto;
+			padding-top: 3%;
+		}
+
+		.column-6{
+			width: 50%;
+			float:left;
+		}
+
+		#left-wrapper{
+			background-color: #6eb1e7;
+			box-shadow: 0 1px 3px 0 #dce0e6;
+		    border-radius: 4px;
+		    border: 1px solid transparent;
+		    padding: 30px;	
+		}
+
+
+		#left-wrapper-header{
+			min-width:50%;
+			float:left;
+			padding-left:20px;
+
+		}
+
+		#left-wrapper-header h3{
+			color:#fff;
+
+		}
+
+		/* ------------------------ FORM FIELDS ------------------------ */
+
+		.form-field-12{
+			width: 100%;
+			margin-bottom: 10px;
+			padding-top: 5px;
+		}
+
+		.form-field-6{
+			width: 50%;
+			float:left;
+			margin-bottom: 10px;
+		}
+
+		input{
+		    box-shadow: 0 1px 3px 0 #dce0e6;
+		    height:40px;
+		    border-radius: 4px;
+		    background-color: #fff;
+		    border: 1px solid transparent;
+		    color:	#44464a;
+		    width: 95%;
+		    padding: 5px;
+		    font-size: 16px;
+
+		}
+
+		input::placeholder {
+		  color: #9fa1a6;
+		}
+
+		/* ------------------------ BUTTON STYLING ------------------------ */
+	</style>
+</head>
+<body>
+	{% block content %}
+
+	{% endblock content %}
+</body>
+</html>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    {% block js %} {% endblock %}
+  </body>
+</html>

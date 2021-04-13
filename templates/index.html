@@ -1,0 +1,109 @@
+
+{% extends 'template.html' %}	
+{% load static %}
+{% block content %}
+	<div id="container">
+		<div class="column-6">
+			<div id="left-wrapper">
+				<div id="left-wrapper-header">
+					<h3>Donate</h3>
+					<h5>Make a Donation</h5>
+				</div>
+				<div style="clear:left"></div>
+				<hr>
+				<!-- Add form here -->
+				<form action="" method="post" id="payment-form">
+					{% csrf_token %}
+					<div class="form-field-12">
+						<label for="amount">Enter Details:</label>
+						<br>
+						<br>
+						<input required type="text" name="amount" id="amount" placeholder="Amount...">
+					</div>
+
+					<div class="form-field-12">
+						<br>
+						<input required type="text" name="email" placeholder="email...">
+						<br>
+						<br>
+					</div>
+
+					<div class="form-field-12">
+						<input required type="text" name="name" placeholder="Name...">
+						<br>
+						<br>
+					</div>
+					
+					<br>
+					<br>
+                    <!-- PAYPAL BUTTONS HERE  -->
+
+                    <div id="paypal-button-container"></div>
+
+                    <!-- Include the PayPal JavaScript SDK -->
+                    <script
+                        src="https://www.paypal.com/sdk/js?client-id={{API_KEY}}&currency=USD">
+                    </script>
+
+                    <script>
+                        // Render the PayPal button into #paypal-button-container
+                        paypal.Buttons({
+
+                            // Set up the transaction
+                            createOrder: function (data, actions) {
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: document.getElementById('amount').value
+                                        }
+                                    }]
+                                });
+                            },
+
+                            // Finalize the transaction
+                            onApprove: function (data, actions) {
+                                return actions.order.capture().then(function (details) {
+                                    // Show a success message to the buyer
+									document.getElementById("payment-form").submit();
+                                    alert('Transaction completed by ' + details.payer.name
+                                        .given_name + '!');
+                                });
+                            }
+
+
+                        }).render('#paypal-button-container');
+                    </script>
+
+                </div>
+				</form>
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-6 mx-8">
+					<div class="card mb-5 shadow-sm">
+						<img class="card-img-top" src="{% static 'images/pic3.jfif' %}" height=150, width=400>
+						<div class="card-body">
+							<h3 class="card-text">Donate To Change the world</h3>
+							<p class="card-text">Donate to protect Nature and make the world a better place.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card mb-5 shadow-sm">
+						<img class="card-img-top" src="{% static 'images/pic4.jpeg' %}" height=170, width=400>
+						<div class="card-body">
+							<h3 class="card-text">Donate To Help</h3>
+							<p class="card-text">Donate to Help people around the world and make the world a happy place. Thank You!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		  </div>
+
+	</div>
+	
+{% endblock content %}
